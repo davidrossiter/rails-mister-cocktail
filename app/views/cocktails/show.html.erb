@@ -1,0 +1,25 @@
+<% title @cocktail.name %>
+
+  <div class="ingredients-container">
+    <ul class="ingredients-list">
+      <div class="ingredients-title-container">
+        <div>Ingredients</div>
+        <div></div>
+      </div>
+      <% @cocktail.doses.each do |dose| %>
+        <li><%= dose.description %> <%= dose.ingredient.name.capitalize %> (<%= link_to "Delete", dose_path(dose), method: :delete %>)</li>
+      <% end %>
+    </ul>
+    <div class="add-ingredients">
+    <div class="dotted"></div>
+    <%= simple_form_for ([ @cocktail, @dose ]) do |f| %>
+      <%= f.input :ingredient_id, prompt: "Select an ingredient", collection: Ingredient.order(:name) %>
+      <!-- Ingredient.all (.order) is an array of sorts, but not -->
+      <%= f.input :description, placeholder: "Add an amount" %>
+
+      <%= f.submit "Add Ingredient" %>
+    <% end %>
+    </div>
+  </div>
+
+<%= link_to 'Back', root_path, class: "back" %>

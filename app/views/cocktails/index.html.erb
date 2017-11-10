@@ -1,0 +1,17 @@
+<% title "Cocktails" %>
+
+Drinks <%= @cocktails.count %>
+
+<div class="cards-wrapper">
+  <div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card">
+      <%= link_to "", cocktail, class: "card-link" %>
+      <font class="cocktail-name"><%= truncate(cocktail.name, :length => 15, :omission => '...') %></font>
+    </div>
+  <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+
+

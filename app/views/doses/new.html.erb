@@ -1,0 +1,11 @@
+<h1>Add a dose to <%= @cocktail.name %></h1>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.input :ingredient_id, collection: Ingredient.all %>
+  <!-- .all is array -->
+
+  <%= f.submit "Add Dose" %>
+<% end %>
+
+<!-- <form action="cocktails/1/doses"></form> -->

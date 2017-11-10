@@ -1,0 +1,1 @@
+<nav><%= link_to "Cocktails", root_path %><% unless current_page?('/') || current_page?('/cocktails') %> / <%= @cocktail.name %><% end %><%= link_to "Add cocktail", new_cocktail_path, class: "add-cocktail-btn" %></nav>
