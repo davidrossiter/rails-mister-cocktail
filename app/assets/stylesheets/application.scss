@@ -85,7 +85,7 @@ nav a
     display: none;
 }
 
-#dose_description
+#cocktail_name, #dose_description
 {
     font-family: Montserrat;
     font-weight: 300;
@@ -102,6 +102,8 @@ nav a
     outline: none;
     background-color: #b7c0cb;
 }
+
+#cocktail_photo { width: 78px; }
 
 #dose_ingredient_id
 {
