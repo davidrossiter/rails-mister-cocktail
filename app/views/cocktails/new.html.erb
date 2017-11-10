@@ -1,8 +1,29 @@
 <% title "Add Cocktail" %>
+<script>
+
+  //Soz about the line, forgot how to use webpack.
+  document.getElementById("cocktail_photo").onchange = function () {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        document.getElementById("target").src = e.target.result;
+    };
+
+    reader.readAsDataURL(this.files[0]);
+};
+
+</script>
 
 <h1>Add new Cocktail</h1>
 
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit "Add Cocktail" %>
 <% end %>
+
+<div id="target">
+</div>
+
+

@@ -5,9 +5,10 @@ Drinks <%= @cocktails.count %>
 <div class="cards-wrapper">
   <div class="cards">
   <% @cocktails.each do |cocktail| %>
-    <div class="card">
+    <div class="card" style="background-image:
+         url('<%= cl_image_path cocktail.photo, height: 200, width: 220, crop: :fill %>')">
       <%= link_to "", cocktail, class: "card-link" %>
-      <font class="cocktail-name"><%= truncate(cocktail.name, :length => 15, :omission => '...') %></font>
+      <font class="cocktail-name"><%= truncate(cocktail.name, :length => 13, :omission => '...') %></font>
     </div>
   <% end %>
     <div class="clear"></div>
