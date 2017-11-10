@@ -1,6 +1,26 @@
 <nav>
 
-  <%= link_to "Cocktails", root_path %><% unless current_page?('/') || current_page?('/cocktails') || current_page?('/cocktails/new') %> / <%= @cocktail.name %><% end %>
+  <%= link_to "Cocktails", root_path %>
+
+  <% unless current_page?('/') || current_page?('/cocktails') || current_page?('/cocktails/new') %>
+
+
+
+    / <%= @cocktail.name %>
+
+
+
+   <% else %>
+
+       <% if current_page?('/') || current_page?('/cocktails') %>
+
+    <% else %>
+
+    / Add a cocktail
+
+        <% end %>
+
+   <% end %>
 
   <%= link_to new_cocktail_path, class: "add-cocktail-btn" do %>
     <div class="add-cocktail-fill"></div>
